@@ -1,0 +1,24 @@
+left_blind:
+  friendly_name: "Left Blind"
+  value_template: "{{ states('sensor.left_blind') }}"
+  open_cover:
+    service: script.left_blind_open
+  close_cover:
+    service: script.left_blind_close
+    
+right_blind:
+  friendly_name: "Right Blind"
+  value_template: "{{ states('sensor.right_blind') }}"
+  open_cover:
+    service: switch.turn_on
+    entity_id: switch.right_blind
+  close_cover:
+    service: switch.turn_on
+    entity_id: switch.right_blind
+    
+projector_screen:
+  friendly_name: "Projector Screen"
+  open_cover:
+    service: script.projector_screen_up
+  close_cover:
+    service: script.projector_screen_down

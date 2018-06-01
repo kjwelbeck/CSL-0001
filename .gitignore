@@ -1,0 +1,10 @@
+*
+!*.yaml
+!scenes
+secrets.yaml
+home-assistant.log
+known_devices.yaml
+entity_registry.yaml
+!.gitignore
+harmony_harmony_hub_2.conf
+phue-0017886ae578.conf

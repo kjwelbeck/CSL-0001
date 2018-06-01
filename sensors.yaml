@@ -1,0 +1,8 @@
+- platform: time_date
+  display_options:
+    - 'date'
+- platform: time_date
+  display_options:
+    - 'time'
+- platform: template
+  sensors: !include template_sensors.yaml

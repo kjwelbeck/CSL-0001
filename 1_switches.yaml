@@ -1,0 +1,43 @@
+- platform: mqtt
+  name: "Left Blind"
+  friendly_name: "Left Blind Switch"
+  command_topic: "cmnd/showroom/blindSwitch/power2"
+  state_topic: "stat/showroom/blindSwitch/power2"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+
+- platform: mqtt
+  name: "Right Blind"
+  friendly_name: "Right Blind Switch"
+  command_topic: "cmnd/showroom/blindSwitch/power4"
+  state_topic: "stat/showroom/blindSwitch/power4"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "Screen Up"
+  friendly_name: "Screen Up Switch"
+  command_topic: "cmnd/showroom/screenSwitch/power3"
+  state_topic: "stat/showroom/screenSwitch/power3"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+
+- platform: mqtt
+  name: "Screen Down"
+  friendly_name: "Screen Down Switch"
+  command_topic: "cmnd/showroom/screenSwitch/power4"
+  state_topic: "stat/showroom/screenSwitch/power4"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: false
+  
+- platform: template
+  switches: !include 1_template_switches.yaml

@@ -1,0 +1,15 @@
+projector_screen_up:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.screen_up
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        entity_id: switch.screen_up
+
+projector_screen_down:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.screen_down
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        entity_id: switch.screen_down

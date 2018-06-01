@@ -1,0 +1,34 @@
+master_bed_time:
+  name: Wake up at
+  has_date: no
+  has_time: yes
+  
+master_wakeup_time:
+  name: Go to bed at 
+  has_date: no
+  has_time: yes
+
+kojo_bed_time:
+  name: Wake up at
+  has_date: no
+  has_time: yes
+  
+kojo_wakeup_time:
+  name: Go to bed at 
+  has_date: no
+  has_time: yes
+
+imms_bed_time:
+  name: Wake up at
+  has_date: no
+  has_time: yes
+  
+imms_wakeup_time:
+  name: Go to bed at 
+  has_date: no
+  has_time: yes
+
+
+
+
+

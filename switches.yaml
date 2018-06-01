@@ -1,0 +1,79 @@
+- platform: mqtt
+  name: "Master Bedroom 1"
+  friendly_name: "Master Bedroom Switch 1"
+  command_topic: "cmnd/switch/master_bedroom_1/power"
+  # state_topic: "stat/switch/master_bedroom_1/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom 2"
+  friendly_name: "Master Bedroom Switch 2"
+  command_topic: "cmnd/switch/master_bedroom_2/power"
+  # state_topic: "stat/switch/master_bedroom_2/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom 3"
+  friendly_name: "Master Bedroom Switch 3"
+  command_topic: "cmnd/switch/master_bedroom_3/power"
+  # state_topic: "stat/switch/master_bedroom_3/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Master Bedroom 4"
+  friendly_name: "Master Bedroom Switch 4"
+  command_topic: "cmnd/switch/master_bedroom_4/power"
+  # state_topic: "stat/switch/master_bedroom_4/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Kojo's Bedroom 1"
+  friendly_name: "Kojo's Bedroom Switch 1"
+  command_topic: "cmnd/switch/kojos_bedroom_1/power"
+  # state_topic: "stat/switch/kojos_bedroom_1/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Kojo's Bedroom 2"
+  friendly_name: "Kojo's Bedroom Switch 2"
+  command_topic: "cmnd/switch/kojos_bedroom_2/power"
+  # state_topic: "stat/switch/kojos_bedroom_2/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Imms' Bedroom 1"
+  friendly_name: "Imms' Bedroom Switch 1"
+  command_topic: "cmnd/switch/imms_bedroom_1/power"
+  # state_topic: "stat/switch/imms_bedroom_1/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+
+- platform: mqtt
+  name: "Imms' Bedroom 2"
+  friendly_name: "Imms' Bedroom Switch 2"
+  command_topic: "cmnd/switch/imms_bedroom_2/power"
+  # state_topic: "stat/switch/imms_bedroom_2/POWER"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true

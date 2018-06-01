@@ -1,0 +1,89 @@
+alexa_open_left_blind:
+    value_template: "{{ is_state('switch.alexa_open_left_blind', 'on') }}"
+    turn_on:
+        service: script.left_blind_open
+    turn_off:
+        service: script.nothing
+
+alexa_close_left_blind:
+    value_template: "{{ is_state('switch.alexa_close_left_blind', 'on') }}"
+    turn_on:
+        service: script.left_blind_close
+    turn_off:
+        service: script.nothing
+
+alexa_open_right_blind:
+    value_template: "{{ is_state('switch.alexa_open_right_blind', 'on') }}"
+    turn_on:
+        service: script.right_blind_open
+    turn_off:
+        service: script.nothing
+
+alexa_close_right_blind:
+    value_template: "{{ is_state('switch.alexa_close_right_blind', 'on') }}"
+    turn_on:
+        service: script.right_blind_close
+    turn_off:
+        service: script.nothing
+
+alexa_raise_screen:
+    value_template: "{{ is_state('switch.alexa_raise_screen', 'on') }}"
+    turn_on:
+        service: script.projector_screen_up
+    turn_off:
+        service: script.nothing
+        
+alexa_lower_screen:
+    value_template: "{{ is_state('switch.alexa_lower_screen', 'on') }}"
+    turn_on:
+        service: script.projector_screen_down
+    turn_off:
+        service: script.nothing
+        
+alexa_projector_on:
+    friendly_name: "Projector On"
+    value_template: "{{ is_state('switch.projector_on', 'on') }}"
+    turn_on:
+        service: script.projector_on
+    turn_off:
+        service: script.nothing
+
+alexa_projector_off:
+    friendly_name: "Projector Off"
+    value_template: "{{ is_state('switch.projector_off', 'on') }}"
+    turn_on:
+        service: script.projector_off
+    turn_off:
+        service: script.nothing
+
+alexa_projector_change_input:
+    friendly_name: "Projector Change Input"
+    value_template: "{{ is_state('switch.alexa_projector_change_input', 'on') }}"
+    turn_on:
+        service: script.projector_change_input
+    turn_off:
+        service: script.nothing
+    
+alexa_projector_volume_up:
+    friendly_name: "Projector Volume Up"
+    value_template: "{{ is_state('switch.alexa_projector_volume_up', 'on') }}"
+    turn_on:
+        service: script.projector_volume_up
+    turn_off:
+        service: script.nothing
+        
+alexa_projector_volume_down:
+    friendly_name: "Projector Volume Down"
+    value_template: "{{ is_state('switch.alexa_projector_volume_down', 'on') }}"
+    turn_on:
+        service: script.projector_volume_down
+    turn_off:
+        service: script.nothing
+        
+alexa_projector_volume_mute:
+    friendly_name: "Projector Mute"
+    value_template: "{{ is_state('switch.alexa_projector_volume_mute', 'on') }}"
+    turn_on:
+        service: script.projector_volume_mute
+    turn_off:
+        service: script.nothing

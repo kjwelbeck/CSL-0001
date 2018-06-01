@@ -1,0 +1,5 @@
+calibrate_left_blind:
+  name: Calibrate Left Blind
+  
+calibrate_right_blind:
+  name: Calibrate Right Blind

@@ -1,0 +1,314 @@
+default_view:
+  name: Home
+  view: yes
+  entities:
+    - group.greeting_card
+    - group.weather_card
+    - group.whos_home
+    - group.master_daily_schedule
+    
+
+security:
+  name: Security
+  view: yes
+  entities:
+    - group.office_front_door
+    - group.front_door
+
+rooms_view:
+  name: Rooms
+  view: yes
+  entities:
+    - group.living_room
+    - group.dining_room
+    - group.kitchen
+    - group.bedroom_master
+    - group.bedroom_kojo
+    - group.bedroom_imms
+    - group.guest_bathroom
+
+# outside_view:
+#   name: Outside
+#   view: true
+
+kojo_view:
+  name: Kojo
+  view: yes
+  entities:
+    - group.kojo_daily_schedule
+
+imms_view:
+  name: Imms
+  view: yes
+  entities:
+    - group.imms_daily_schedule
+
+media_view:
+  name: Media
+  view: yes
+
+# scenes_view:
+#   name: Scenes
+#   view: yes
+
+energy_savings_view:
+  name: Energy Saving Modes
+  view: yes
+  entities:
+    - group.energy_savings_control
+    - group.energy_all_lights
+    - group.energy_all_switches
+    - group.energy_all_acs
+    - group.energy_all_covers
+
+
+# vacation_view:
+#   name: Vacation Mode
+#   view: yes
+
+automations_view:
+  name: Automations
+  view: yes
+  entities:
+    - group.all_automations
+    - group.tracking_automations
+    - group.all_scripts
+    - group.all_scenes
+    - group.all_acs
+    - group.all_lights
+    - group.all_switches
+    - group.all_covers
+
+
+################
+# Room groups
+#####
+
+living_room:
+  name: Living Room
+  control: hidden
+  entities:
+    - climate.living_room_airconditioner
+    - light.living_room
+    - cover.living_room
+    # - switch.dummy_switch_1
+
+
+dining_room:
+  name: Dining Room
+  control: hidden
+  entities:
+    # - switch.dummy_switch_2
+    - light.dining_room
+
+kitchen:
+  name: Kitchen
+  control: hidden
+  entities:
+    # - switch.dummy_switch_3
+    - light.kitchen
+
+bedroom_master:
+  name: Master's Bedroom
+  control: hidden
+  entities:
+    - climate.bedroom_airconditioner
+    # - switch.dummy_switch_4
+    - light.master_bedroom
+    - switch.master_bedroom_1
+    - switch.master_bedroom_2
+    - switch.master_bedroom_3
+    - switch.master_bedroom_4
+    - cover.master_bedroom
+
+bedroom_kojo:
+  name: Kojo's Bedroom
+  control: hidden
+  entities:
+    # - switch.dummy_switch_5
+    - climate.kojos_bedroom
+    - light.kojos_bedroom
+    - switch.kojos_bedroom_1
+    - switch.kojos_bedroom_2
+    - cover.kojos_bedroom
+
+bedroom_imms:
+  name: Imms' Bedroom
+  control: hidden
+  entities:
+    # - switch.dummy_switch_6
+    - climate.imms_bedroom
+    - light.imms_bedroom
+    - switch.imms_bedroom_1
+    - switch.imms_bedroom_2
+    - cover.imms_bedroom
+    
+
+################
+# Information cards
+####
+
+greeting_card:
+  name: "Yello!"
+  control: hidden
+  entities: 
+    - sensor.time
+    - sensor.date
+    # - sensor.time_online
+
+weather_card:
+  name: Weather
+  control: hidden
+  entities: 
+    - sensor.weather_temperature
+    - sensor.weather_condition
+    - sensor.weather_cloud_coverage
+    - sensor.weather_forecast
+    - sun.sun
+
+front_door:
+  name: Front Door
+  control: hidden
+  entities:
+    - sensor.ring_front_door_battery
+    - sensor.ring_front_door_last_activity
+    - sensor.ring_front_door_last_ding
+    - sensor.ring_front_door_last_motion
+    - sensor.ring_front_door_volume
+    - sensor.ring_front_door_wifi_signal_category
+    - sensor.ring_front_door_wifi_signal_strength
+
+office_front_door:
+  name: Office Front Door
+  control: hidden
+  entities:
+    - sensor.ring_office_front_door_battery
+    - sensor.ring_office_front_door_last_activity
+    - sensor.ring_office_front_door_last_ding
+    - sensor.ring_office_front_door_last_motion
+    - sensor.ring_office_front_door_volume
+    - sensor.ring_office_front_door_wifi_signal_category
+    - sensor.ring_office_front_door_wifi_signal_strength
+
+
+whos_home:
+  name: Who's Home?
+  control: hidden
+  entities:
+    - sensor.anyone_home
+    - sensor.last_to_return
+    - sensor.last_to_leave
+    - device_tracker.kojo
+    - device_tracker.imms
+    - device_tracker.tablet
+    - device_tracker.sefakor
+    - device_tracker.dickson
+    - device_tracker.macdonald
+
+
+master_daily_schedule:
+  name: Daily Schedule
+  control: hidden
+  entities:
+    - input_datetime.master_bed_time
+    - input_datetime.master_wakeup_time
+
+kojo_daily_schedule:
+  name: Daily Schedule
+  control: hidden
+  entities:
+    - input_datetime.kojo_bed_time
+    - input_datetime.kojo_wakeup_time
+
+imms_daily_schedule:
+  name: Daily Schedule
+  control: hidden
+  entities:
+    - input_datetime.imms_bed_time
+    - input_datetime.imms_wakeup_time
+
+### Automation Groupings
+
+tracking_automations:
+  name: Tracking Automations
+  control: hidden
+  entities:
+    - automation.tracking_imms_coming_home
+    - automation.tracking_imms_leaving_home
+    - automation.tracking_kojo_coming_home
+    - automation.tracking_kojo_leaving_home
+    - automation.tracking_macdonald_coming_home
+    - automation.tracking_macdonald_leaving_home
+    - automation.tracking_sefakor_coming_home
+    - automation.tracking_sefakor_leaving_home
+    - automation.tracking_tablet_coming_home
+    - automation.tracking_tablet_leaving_home
+
+### grouping for control
+all_acs:
+  name: All A/Cs
+  # control: hidden
+  entities:
+    - climate.bedroom_airconditioner
+    - climate.imms_bedroom
+    - climate.kojos_bedroom
+    - climate.living_room_airconditioner
+
+all_scenes:
+  name: All Scenes
+  entities:
+    - scene.daytime_welcome
+    - scene.nighttime_welcome
+    - scene.shutdown
+
+#### Energy Savings
+
+energy_all_lights:
+  name: Configure Lights
+  entities: 
+    - input_select.energy_light_dining_room
+    - input_select.energy_light_imms_bedroom
+    - input_select.energy_light_kitchen
+    - input_select.energy_light_kojos_bedroom
+    - input_select.energy_light_living_room
+    - input_select.energy_light_master_bedroom
+
+
+energy_all_switches:
+  name: Configure Switches
+  entities:
+    - input_select.energy_switch_imms_bedroom_1
+    - input_select.energy_switch_imms_bedroom_2
+    - input_select.energy_switch_kojos_bedroom_1
+    - input_select.energy_switch_kojos_bedroom_2
+    - input_select.energy_switch_master_bedroom_1
+    - input_select.energy_switch_master_bedroom_2
+    - input_select.energy_switch_master_bedroom_3
+    - input_select.energy_switch_master_bedroom_4
+
+energy_all_acs:
+  name: Configure A/Cs
+  entities:
+    - input_select.energy_climate_bedroom_airconditioner
+    - input_select.energy_climate_imms_bedroom
+    - input_select.energy_climate_kojos_bedroom
+    - input_select.energy_climate_living_room_airconditioner
+
+energy_all_covers:
+  name: Configure Shades
+  entities: 
+    - input_select.energy_cover_imms_bedroom
+    - input_select.energy_cover_kojos_bedroom
+    - input_select.energy_cover_living_room
+    - input_select.energy_cover_master_bedroom
+
+energy_savings_control:
+  name: Energy Savings
+  control: hidden
+  entities:
+    - input_boolean.activate_energy_saving_mode
+    - input_boolean.reset_energy_savings
+energy_saving:
+  name: Energy Savers
+  # need to set hide in customize
+  entities:

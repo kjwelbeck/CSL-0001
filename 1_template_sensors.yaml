@@ -1,0 +1,17 @@
+left_blind:
+  friendly_name: "Left Blind Sensor"
+  value_template: >-
+          {% if is_state('input_boolean.calibrate_left_blind', 'on') %}  
+            open
+          {% else %}
+            closed
+          {% endif %}
+
+right_blind:
+  friendly_name: "Right Blind Sensor"
+  value_template: >-
+          {% if is_state('input_boolean.calibrate_right_blind', 'on')  %}   
+            open
+          {% else %}
+            closed
+          {% endif %}

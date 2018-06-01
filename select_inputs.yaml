@@ -1,0 +1,140 @@
+last_person_to_return:
+  name: Last Person Back Home
+  options:
+    - N/A
+    - Master
+    - Kojo
+    - Imms
+    - Tablet
+    - MacDonald
+    - Sefakor
+
+last_person_to_leave:
+  name: Last Person to Leave
+  options:
+    - N/A
+    - Master
+    - Kojo
+    - Imms
+    - Tablet
+    - MacDonald
+    - Sefakor
+
+###### ALL LIGHTS
+energy_light_dining_room:
+  name: Dining Room Lights
+  options:
+    - Normal
+    - Energy Saver
+energy_light_imms_bedroom:
+  name: Imms' Bedroom Lights
+  options:
+    - Normal
+    - Energy Saver
+energy_light_kitchen:
+  name: Kitchen Lights
+  options:
+    - Normal
+    - Energy Saver
+energy_light_kojos_bedroom:
+  name: Kojo's Bedroom Lights
+  options:
+    - Normal
+    - Energy Saver
+energy_light_living_room:
+  name: Living Room Lights
+  options:
+    - Normal
+    - Energy Saver
+energy_light_master_bedroom:
+  name: Master Bedroom Lights
+  options:
+    - Normal
+    - Energy Saver
+
+##### ALL A/Cs
+energy_climate_bedroom_airconditioner:
+  name: Master Bedroom A/C
+  options:
+    - Normal
+    - Energy Saver
+energy_climate_imms_bedroom:
+  name: Imms' Bedroom A/C
+  options:
+    - Normal
+    - Energy Saver
+energy_climate_kojos_bedroom:
+  name: Kojo's Bedroom A/C
+  options:
+    - Normal
+    - Energy Saver
+energy_climate_living_room_airconditioner:
+  name: Living Room A/C
+  options:
+    - Normal
+    - Energy Saver
+
+##### ALL SWITCHES
+energy_switch_imms_bedroom_1:
+  name: Imms' Bedroom Switch 1
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_imms_bedroom_2:
+  name: Imms' Bedroom Switch 2
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_kojos_bedroom_1:
+  name: Kojo's Bedroom Switch 1
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_kojos_bedroom_2:
+  name: Kojo's Bedroom Switch 2
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_master_bedroom_1:
+  name: Master Bedroom Switch 1
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_master_bedroom_2:
+  name: Master Bedroom Switch 2
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_master_bedroom_3:
+  name: Master Bedroom Switch 3
+  options:
+    - Normal
+    - Energy Saver
+energy_switch_master_bedroom_4:
+  name: Master Bedroom Switch 4
+  options:
+    - Normal
+    - Energy Saver
+
+##### ALL COVERS
+
+energy_cover_imms_bedroom:
+  name: Imms' Bedroom Shades
+  options:
+    - Normal
+    - Energy Saver
+energy_cover_kojos_bedroom:
+  name: Kojo's Bedroom Shades
+  options:
+    - Normal
+    - Energy Saver
+energy_cover_living_room:
+  name: Living Room Shades
+  options:
+    - Normal
+    - Energy Saver
+energy_cover_master_bedroom:
+  name: Master Bedroom Shades
+  options:
+    - Normal
+    - Energy Saver

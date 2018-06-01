@@ -1,0 +1,2 @@
+- platform: template
+  covers: !include 1_template_covers.yaml

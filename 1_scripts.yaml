@@ -1,0 +1,155 @@
+projector_screen_up:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.screen_up
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        entity_id: switch.screen_up
+      - service: switch.turn_off
+        entity_id: switch.alexa_raise_screen
+
+projector_screen_down:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.screen_down
+      - delay: '00:00:01'
+      - service: switch.turn_on
+        entity_id: switch.screen_down
+      - service: switch.turn_off
+        entity_id: switch.alexa_lower_screen
+
+left_blind_open:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.left_blind
+      - delay: '00:00:05'
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.calibrate_left_blind
+      - service: switch.turn_off
+        entity_id: switch.alexa_open_left_blind
+        
+left_blind_close:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.left_blind
+      - delay: '00:00:05'
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.calibrate_left_blind
+      - service: switch.turn_off
+        entity_id: switch.alexa_close_left_blind
+
+right_blind_open:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.right_blind
+      - delay: '00:00:05'
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.calibrate_right_blind
+      - service: switch.turn_off
+        entity_id: switch.alexa_open_right_blind
+        
+right_blind_close:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.right_blind
+      - delay: '00:00:05'
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.calibrate_right_blind
+      - service: switch.turn_off
+        entity_id: switch.alexa_close_right_blind
+        
+nothing:
+    sequence:
+      - delay: '00:00:01'
+      
+      
+projector_on:
+    alias: Turn On
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - PowerOn
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_on
+        
+projector_off:
+    alias: Turn Off
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - PowerOff
+              - PowerOff
+            delay_secs: 1
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_off
+            
+projector_change_input:
+    alias: Change Source
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - Source
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_change_input
+
+projector_volume_up:
+    alias: Volume Up
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - VolumeUp
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_volume_up
+        
+projector_volume_down:
+    alias: Volume Down
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - VolumeDown
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_volume_down
+                      
+projector_volume_mute:
+    alias: Mute Sound
+    sequence:
+      - service: remote.send_command
+        data:
+            entity_id: remote.harmony_hub_2 
+            device: 55059388
+            command: 
+              - Mute
+      - service: switch.turn_off
+        entity_id: switch.alexa_projector_volume_mute
+        
+cinema_on:
+    sequence:
+      - service: script.projector_screen_down
+      - service: script.left_blind_open
+      - service: script.right_blind_open
+      - service: script.projector_on
+      - delay: '00:00:40'
+      - service: light.turn_off
+        entity_id: light.office_lights
+        
+cinema_off:
+    sequence:
+      - service: script.projector_screen_up
+      - service: script.left_blind_close
+      - service: script.right_blind_close
+      - service: script.projector_off

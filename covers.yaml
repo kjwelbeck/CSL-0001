@@ -1,0 +1,41 @@
+- platform: mqtt
+  name: "Living Room"
+  friendly_name: "Living Room Shades"
+  # state_topic: "home/cover/livingRoom/status"
+  command_topic: "home/cover/living_room/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+- platform: mqtt
+  name: "Master Bedroom"
+  friendly_name: "Master Bedroom Shades"
+  # state_topic: "home/cover/master/status"
+  command_topic: "home/cover/master_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+
+- platform: mqtt
+  name: "Kojo's Bedroom"
+  friendly_name: "Kojo's Bedroom Shades"
+  # state_topic: "home/cover/kojo/status"
+  command_topic: "home/cover/kojos_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+
+- platform: mqtt
+  name: "Imms' Bedroom"
+  friendly_name: "Imms' Bedroom Shades"
+  # state_topic: "home/cover/imms/status"
+  command_topic: "home/cover/imms_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true

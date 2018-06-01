@@ -1,0 +1,62 @@
+- platform: mqtt
+  name: "Living Room"
+  friendly_name: "Living Room Lights"
+  # state_topic: "home/light/livingRoom/status"
+  command_topic: "home/light/living_room/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+- platform: mqtt
+  name: "Dining Room"
+  friendly_name: "Dining Room Lights"
+  # state_topic: "home/light/dinigRoom/status"
+  command_topic: "home/light/dinig_room/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+- platform: mqtt
+  name: "Kitchen"
+  friendly_name: "Kitchen Lights"
+  # state_topic: "home/light/kitchen/status"
+  command_topic: "home/light/kitchen/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+
+- platform: mqtt
+  name: "Master Bedroom"
+  friendly_name: "Master Bedroom Lights"
+  # state_topic: "home/light/master/status"
+  command_topic: "home/light/master_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+
+- platform: mqtt
+  name: "Kojo's Bedroom"
+  friendly_name: "Kojo's Bedroom Lights"
+  # state_topic: "home/light/kojo/status"
+  command_topic: "home/light/kojos_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+
+- platform: mqtt
+  name: "Imms' Bedroom"
+  friendly_name: "Imms' Bedroom Lights"
+  # state_topic: "home/light/imms/status"
+  command_topic: "home/light/imms_bedroom/switch"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true

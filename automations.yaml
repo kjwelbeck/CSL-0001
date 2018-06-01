@@ -1,0 +1,353 @@
+  - alias: Tracking Kojo Coming Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.kojo
+      from: 'not_home'
+      to: 'home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_return
+          option: Kojo
+
+  - alias: Tracking Imms Coming Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.imms
+      from: 'not_home'
+      to: 'home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_return
+          option: Imms
+
+  - alias: Tracking Kojo Leaving Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.kojo
+      from: 'home'
+      to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_leave
+          option: Kojo
+
+  - alias: Tracking Imms Leaving Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.imms
+      from: 'home'
+      to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_leave
+          option: Imms
+
+  - alias: Tracking Tablet Coming Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.tablet
+      from: 'not_home'
+      to: 'home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_return
+          option: Tablet
+
+  - alias: Tracking Tablet Leaving Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.tablet
+      from: 'home'
+      to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_leave
+          option: Tablet
+
+  - alias: Tracking MacDonald Coming Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.macdonald
+      from: 'not_home'
+      to: 'home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_return
+          option: MacDonald
+
+  - alias: Tracking MacDonald Leaving Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.macdonald
+      from: 'home'
+      to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_leave
+          option: MacDonald
+
+  - alias: Tracking Sefakor Coming Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.sefakor
+      from: 'not_home'
+      to: 'home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_return
+          option: Sefakor
+
+  - alias: Tracking Sefakor Leaving Home
+    hide_entity: False
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: device_tracker.sefakor
+      from: 'home'
+      to: 'not_home'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.last_person_to_leave
+          option: Sefakor
+
+## Occupancy 
+
+  - alias: First to Return during the Day
+    hide_entity: False
+    initial_state: off 
+    trigger:
+      platform: state
+      entity_id: sensor.anyone_home
+      from: 'No'
+      to: 'Yes'
+    condition:  
+      condition: sun
+      before: sunset
+      before_offset: "-00:30:00"
+    action:
+      service: scene.turn_on
+      entity_id: scene.daytime_welcome
+
+
+  - alias: First to Return at Night
+    hide_entity: False
+    initial_state: off
+    trigger:
+      platform: state
+      entity_id: sensor.anyone_home
+      from: 'No'
+      to: 'Yes'
+    condition:  
+      condition: sun
+      after: sunset
+      after_offset: "-00:30:00"
+    action:
+      service: scene.turn_on
+      entity_id: scene.nighttime_welcome
+
+
+  - alias: Last to Leave
+    hide_entity: False
+    initial_state: off
+    trigger:
+      platform: state
+      entity_id: sensor.anyone_home
+      from: 'Yes'
+      to: 'No'
+    action:
+      service: scene.turn_on
+      entity_id: scene.shutdown
+
+
+#### Energy Savings
+  - alias: add entities to energy saving group
+    initial_state: on
+    hide_entity: False #True
+    trigger: 
+      platform: state
+      entity_id: input_boolean.activate_energy_saving_mode
+      from: 'off'
+      to: 'on'
+    action: 
+      - service: python_script.collect_energysavers
+      - service: python_script.override_energysavers
+
+
+  - alias: reset energy savers to normal
+    initial_state: on
+    hide_entity: False #True
+    trigger: 
+      platform: state
+      entity_id: input_boolean.reset_energy_savings
+      from: 'off'
+      to: 'on'
+    action: 
+      - service: python_script.clear_energysavers
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.activate_energy_saving_mode
+      - service: group.reload
+      - delay: "00:00:05" 
+      - service: input_boolean.turn_off
+        entity_id: input_boolean.reset_energy_savings
+
+  - alias: overriding lights when in energy-saving mode
+    initial_state: on
+    hide_entity: False #True
+    trigger:
+      - platform: state
+        entity_id: light.dining_room
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: light.imms_bedroom
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: light.kitchen
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: light.kojos_bedroom
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: light.living_room
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: light.master_bedroom
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: input_boolean.activate_energy_saving_mode
+      state: 'on'
+    action:
+      - delay: "00:00:05"
+      - service: python_script.override_energysavers
+
+  - alias: overriding switches when in energy-saving mode
+    initial_state: on
+    hide_entity: False #True
+    trigger:
+      - platform: state
+        entity_id: switch.imms_bedroom_1
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.imms_bedroom_2
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.kojos_bedroom_1
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.kojos_bedroom_2
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.master_bedroom_1
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.master_bedroom_2
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.master_bedroom_3
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: switch.master_bedroom_4
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: input_boolean.activate_energy_saving_mode
+      state: 'on'
+    action:
+      - delay: "00:00:05"
+      - service: python_script.override_energysavers
+
+
+  - alias: overriding covers when in energy-saving mode
+    initial_state: on
+    hide_entity: False #True
+    trigger:
+      - platform: state
+        entity_id: cover.imms_bedroom
+        to: 'open'
+      - platform: state
+        entity_id: cover.kojos_bedroom
+        to: 'open'
+      - platform: state
+        entity_id: cover.living_room
+        to: 'open'
+      - platform: state
+        entity_id: cover.master_bedroom
+        to: 'open'
+    condition:
+      condition: state
+      entity_id: input_boolean.activate_energy_saving_mode
+      state: 'on'
+    action:
+      - delay: "00:00:05"
+      - service: python_script.override_energysavers
+
+
+  - alias: overriding covers when in energy-saving mode
+    initial_state: on
+    hide_entity: False #True
+    trigger:
+      - platform: state
+        entity_id: climate.bedroom_airconditioner
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: climate.imms_bedroom
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: climate.kojos_bedroom
+        from: 'off'
+        to: 'on'
+      - platform: state
+        entity_id: climate.living_room_airconditioner
+        from: 'off'
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: input_boolean.activate_energy_saving_mode
+      state: 'on'
+    action:
+      - delay: "00:00:05"
+      - service: python_script.override_energysavers

@@ -1,0 +1,26 @@
+- name: Daytime Welcome
+  entities:
+    light.living_room: off
+    light.kitchen: off
+    light.dining_room: off
+    climate.living_room:
+      state: on
+      temperature: 23
+    cover.living_room: open
+
+- name: Nighttime Welcome
+  entities:
+    light.living_room: on
+    light.kitchen: on
+    light.dining_room: on
+    climate.living_room:
+      state: on
+      temperature: 23
+    cover.living_room: close
+
+- name: Shutdown
+  entities:
+    group.all_lights: off
+    group.all_acs: off
+    group.all_switches: off
+    group.all_covers: close

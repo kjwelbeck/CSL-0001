@@ -1,0 +1,57 @@
+group.all_automations:
+  hidden: false
+  friendly_name: All Automations
+group.all_scripts:
+  hidden: false
+  friendly_name: All Scripts
+group.all_scenes:
+  hidden: false
+  friendly_name: All Scenes
+group.all_lights:
+  hidden: false
+  friendly_name: All Lights
+group.all_switches:
+  hidden: false
+  friendly_name: All Switches
+group.all_covers:
+  hidden: false
+  friendly_name: All Covers
+
+light.dining_room:
+  friendly_name: Dining Room Lights
+light.imms_bedroom:
+  friendly_name: Imms' Bedroom Lights
+light.kitchen: 
+  friendly_name: Kitchen Lights
+light.kojos_bedroom:
+  friendly_name: Kojo's Bedroom Lights
+light.living_room:
+  friendly_name: Living Room Lights
+light.master_bedroom:
+  friendly_name: Bedroom Lights
+
+cover.imms_bedroom:
+  friendly_name: Imms' Bedroom Shades
+cover.kojos_bedroom:
+  friendly_name: Kojo's Bedroom Shades
+cover.living_room:
+  friendly_name: Living Room Shades
+cover.master_bedroom:
+  friendly_name: Bedroom Shades
+
+switch.imms_bedroom_1:
+  friendly_name: Imms' Bedroom Switch 1
+switch.imms_bedroom_2:
+  friendly_name: Imms' Bedroom Switch 2
+switch.kojos_bedroom_1:
+  friendly_name: Kojo's Bedroom Switch 1
+switch.kojos_bedroom_2:
+  friendly_name: Kojo's Bedroom Switch 2
+switch.master_bedroom_1:
+  friendly_name: Bedroom Switch 1
+switch.master_bedroom_2:
+  friendly_name: Bedroom Switch 2
+switch.master_bedroom_3:
+  friendly_name: Bedroom Switch 3
+switch.master_bedroom_4:
+  friendly_name: Master Bedroom Switch 4

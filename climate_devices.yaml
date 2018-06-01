@@ -1,0 +1,29 @@
+- platform: mqtt
+  name: Kojo's Bedroom
+  friendly_name: Kojo's Bedroom A/C
+  modes:
+      - off
+      - on
+  # current_temperature_topic: /ac/kojos_bedroom/current_temp
+  # temperature_command_topic: /ac/kojos_bedroom/target_temp
+  # mode_command_topic: /ac/kojos_bedroom/set
+  power_command_topic: "study/ac/power/set"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true
+
+- platform: mqtt
+  name: Imms' Bedroom
+  friendly_name: Imms' Bedroom A/C
+  modes:
+      - off
+      - on
+  # current_temperature_topic: /ac/imms_bedroom/current_temp
+  # temperature_command_topic: /ac/imms_bedroom/target_temp  
+  # mode_command_topic: /ac/imms_bedroom/set
+  power_command_topic: "study/ac/power/set"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: true

@@ -1,0 +1,119 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: SENSEBLE HOME
+  # Location required to calculate the time the sun rises and sets
+  latitude: 5.6321637
+  longitude: -0.1717307
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 56
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Africa/Accra
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+# sensor:
+#   - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+  - platform: picotts
+
+# Cloud
+cloud:
+
+# Alexa
+alexa:
+  smart_home:
+    filter:
+      include_entities:
+        - light.office_lights
+      include_domains:
+        - scene
+
+
+# Embedded mqtt broker
+mqtt:
+
+# Enables python scripts found in <configuration>/python_script folder
+python_script:
+
+#############################
+# DEVICES - Sensibo, Hacked Sonoff, NMAP Presence Detection
+##############################
+
+sensor: !include 1_sensors.yaml
+# binary_sensor: !include binary_sensors.yaml
+# input_boolean: !include input_booleans.yaml
+climate: !include 1_climate_devices.yaml
+switch: !include 1_switches.yaml
+# media_player: !include media_players.yaml
+device_tracker: !include device_tracking.yaml
+# camera: !include cameras.yaml
+cover: !include 1_covers.yaml
+light: !include 1_lights.yaml
+remote: !include 1_remotes.yaml
+
+# alarm_control_panel: !include alarm_control_panel.yaml
+# input_select: !include input_select.yaml
+# notify: !include notify.yaml
+scene: !include 1_scenes.yaml
+# script: !include scripts.yaml
+# shell_command: !include shell_commands.yaml
+
+input_select: !include select_inputs.yaml
+input_boolean: !include 1_boolean_inputs.yaml
+#input_number: !include number_inputs.yaml
+input_datetime: !include datetime_inputs.yaml
+#input_text: !include text_inputs.yaml
+
+group: !include 1_groups.yaml
+automation: !include 1_automations_blinds.yaml
+script: !include 1_scripts.yaml
+#intent_script: !include intent_scripts.yaml

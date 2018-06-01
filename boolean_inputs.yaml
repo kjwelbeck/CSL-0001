@@ -1,0 +1,5 @@
+activate_energy_saving_mode:
+  name: Energy Saving Mode
+  
+reset_energy_savings:
+  name: Reset All to Normal 

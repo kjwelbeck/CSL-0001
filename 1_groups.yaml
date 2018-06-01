@@ -1,0 +1,46 @@
+default_view:
+  name: Clearspace
+  view: yes
+  entities:
+    - group.showroom
+    - group.projector
+
+    
+################
+# Room groups
+#####
+
+showroom:
+  name: Lobby/Show Room
+  control: hidden
+  entities:
+    - light.office_lights
+    - climate.ac
+#    - switch.left_blind
+#    - switch.right_blind
+#    - switch.screen_up
+#    - switch.screen_down
+    - cover.left_blind
+    - cover.right_blind
+    - group.calibrate_blinds
+    - cover.projector_screen
+#    - group.projector
+
+projector:
+  name: Projector
+  control: hidden
+  entities:
+    - script.projector_on
+    - script.projector_off
+    - script.projector_change_input
+    - script.projector_volume_up
+    - script.projector_volume_down
+    - script.projector_volume_mute
+    
+###############
+
+calibrate_blinds:
+  name: Calibrate Blinds
+  entities:
+    - input_boolean.calibrate_left_blind
+    - input_boolean.calibrate_right_blind

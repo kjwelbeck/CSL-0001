@@ -1,0 +1,10 @@
+- name: Cinema
+  entities:
+    script.cinema_on: on
+
+
+- name: Cinema Off
+  entities:
+    light.office_lights: on
+    script.cinema_off: on
+    

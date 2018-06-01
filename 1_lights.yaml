@@ -1,0 +1,10 @@
+- platform: mqtt
+  name: "Office Lights"
+  friendly_name: "Office Lights"
+  state_topic: "stat/showroom/light/POWER"
+  command_topic: "cmnd/showroom/light/Power"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+
+
